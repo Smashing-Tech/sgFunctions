@@ -1,0 +1,10 @@
+{
+	"level": "citrus",
+	"room": "lemon",
+	"music": "28",
+	"fog": [[0.8, 0.76, 0.23], [0.92, 0.85, 0.4]],
+	"length": 200,
+	"start": "start",
+	"segments": ["16_0", "16_1", "16_2", "16_3", "16_4_scoretop", "8_0"],
+	"end": "end"
+}
