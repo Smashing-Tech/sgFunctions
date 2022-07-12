@@ -99,28 +99,34 @@ def exportRoom(string, outfile = None):
 
 def gui():
 	window = tkinter.Tk(className = "LevelMaker")
-	window.title("Smash Hit Level Maker")
-	window.geometry("600x600")
+	window.title("Smash Hit Level Maker 0.0.1")
+	window.geometry("520x180")
 	
 	ttk.Frame(window)
 	
-	input_feild = tkinter.Entry(window, width = 95)
+	input_label = tkinter.Label(window, text = "Input file location (JSON, valid format)")
+	input_label.place(x = 10, y = 10)
+	
+	input_feild = tkinter.Entry(window, width = 70)
 	input_feild.place(x = 10, y = 35)
 	
-	output_feild = tkinter.Entry(window, width = 95)
-	output_feild.place(x = 10, y = 80)
+	output_label = tkinter.Label(window, text = "Output file location (Lua room file)")
+	output_label.place(x = 10, y = 65)
+	
+	output_feild = tkinter.Entry(window, width = 70)
+	output_feild.place(x = 10, y = 90)
 	
 	def x(): exportRoom(loadJson(input_feild.get()), output_feild.get())
 	
 	export_button = tkinter.Button(window, text = "Generate Room", command = x)
-	export_button.place(x = 10, y = 110)
+	export_button.place(x = 10, y = 130)
 	
 	window.mainloop()
 
 def main():
-	if (sys.argv[1] == "export"):
+	if ((len(sys.argv) > 1) and (sys.argv[1] == "--export")):
 		exportRoom(loadJson(sys.argv[2]))
-	elif (sys.argv[1] == "gui"):
+	else:
 		gui()
 
 if (__name__ == "__main__"):
